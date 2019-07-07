@@ -1,48 +1,34 @@
-// Arrow Functions
-
-// function display() {
-//     console.log("Hello !!!!");
-// }
-// display();
+var a = [55, -2, 4, 95, 1, 6, 4, 77, 23];
 
 
-var display = function (name) {
-    console.log("Hello !!!!", name);
-}
-display("Vinod");
 
-
-// var fun_name = () => {
+// a.forEach(display);
+// function display(value, index) {
+//     console.log("Index: ", index, " Value: ", value);
 // }
 
-var displayArr = (name) => {
-    console.log("Hello Arrow !!!!", name);
-}
-displayArr("Kumar");
 
+// square(a);
+// Impure Function
+// function square(a) {
+//     console.log("Before, ", a);
+//     for (var i = 0; i < a.length; i++) {
+//         var n = a[i];
+//         a[i] = n * n;
+//     }
+//     console.log("After, ", a);
+// }
 
-var yearOfBirth = 2000;
-
-function Person(name, yearOfBirth, isMarried, designation) {
-    this.name = name;
-    this.yearOfBirth = yearOfBirth;
-    this.isMarried = isMarried;
-    this.designation = designation;
-    this.display = function () {
-        console.log(this.name, this.yearOfBirth, this.isMarried, this.designation);
+// Pure Function
+function square(a) {
+    console.log("Before, ", a);
+    var temp = [];
+    for (var i = 0; i < a.length; i++) {
+        var n = a[i];
+        temp.push(n * n);
     }
-    this.calculateAge = function (currentYear) {
-        function calAge(currentYear) {
-            return (currentYear - this.yearOfBirth);
-        }
-        console.log("Age Is :", calAge(currentYear));
-        var calAgeArr = (currentYear) => {
-            return (currentYear - this.yearOfBirth);
-        }
-        console.log("Age Is :", calAgeArr(currentYear));
-    }
+    console.log("After, ", a);
+    return temp;
 }
 
-var vinod = new Person("Vinod", 1990, false, "Teacher");
-vinod.display();
-vinod.calculateAge(2019);
+console.log("New Array", square(a));
