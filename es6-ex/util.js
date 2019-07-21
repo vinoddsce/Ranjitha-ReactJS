@@ -1,7 +1,7 @@
-function sayHi() {
-    console.log("Hi");
+export function sayHi() {
+    console.log("Hi, hello !!!!!!");
 }
 
 
-export { sayHi }
+// export { sayHi }
 

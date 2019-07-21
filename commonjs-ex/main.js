@@ -1,4 +1,10 @@
 var util = require('./util');
 
-util.greetFunction();
-console.log(util.cost);
+var name = "Vinod";
+
+console.log(util.greetFunction());
+
+exports.name = name;
+// module.exports.name = name;
+
+console.log(exports);
