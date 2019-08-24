@@ -10,6 +10,12 @@
     <script src="babel.js"></script>
     <script src="react.development.js"></script>
     <script src="react-dom.development.js"></script>
+
+    <style>
+        .text-color {
+            color: red
+        }
+    </style>
 </head>
 
 <body>
@@ -20,12 +26,80 @@
 
     <script type="text/babel">
 
-        // var props = {id: "h1-element", children: "Hello React !!!!!"};
-        // var element = "h1"
-        // var finalElement = React.createElement("h1", props);
 
-        var element = <p>Hello React from JSX !!!!!</p>
-        ReactDOM.render(element, document.getElementById("root"));
+        class Car {
+            static count = 0;
+            constructor(name, color) {
+                Car.count++;
+                this.name = name;
+                this.color = color;
+            }
+
+            getCarDetails() {
+                console.log("Car Name: ", this.name, " Car Color", this.color);
+            }
+
+            static getCount() {
+                return Car.count;
+            }
+        }
+        
+        var c1 = new Car('Polo', 'White');
+        
+        var c2 = new Car('Baleno', 'Red');
+        console.log("Car Numbers: ", Car.getCount());
+
+        c1.getCarDetails();
+
+        // var rootElement = document.getElementById('root');
+        // var childElement = document.createElement('h1');
+        // childElement.textContent = "Hello Kiddo !!!!";
+        // childElement.className = "text-color"
+        // rootElement.appendChild(childElement);
+
+        // const elementProps = {id: 'element-id', children: 'Hello world!'}
+        // const elementType = 'h1';
+        // const reactElement = React.createElement(elementType, elementProps);
+        // console.log("reactElement", reactElement);
+        // ReactDOM.render(reactElement, document.getElementById('root'));
+
+
+        // var element = <h1>Hello KiDDO !!!!!</h1>;
+        // console.log(element);
+        // ReactDOM.render(element, document.getElementById('root'));
+
+
+
+        // Why Do React Elements Have a $$typeof Property?
+/* *****
+        You might think you’re writing JSX:
+
+        <marquee bgcolor="#ffa7c4">hi</marquee>
+        But really, you’re calling a function:
+******* */
+
+        // React.createElement(
+        // /* type */ 'marquee',
+        // /* props */ { bgcolor: '#ffa7c4' },
+        // /* children */ 'hi'
+        // )
+
+//         And that function gives you back an object. 
+//         We call this object a React element. 
+//         It tells React what to render next. Your components return a tree of them.
+
+// {
+//   type: 'marquee',
+//   props: {
+//     bgcolor: '#ffa7c4',
+//     children: 'hi',
+//   },
+//   key: null,
+//   ref: null,
+//   $$typeof: Symbol.for('react.element'), // 🧐 Who dis
+// }
+// If you used React you might be familiar with type, props, key, and ref fields. 
+// But what is $$typeof? And why does it have a Symbol() as a value?
 
     </script>
 </body>
